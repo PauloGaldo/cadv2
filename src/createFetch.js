@@ -23,7 +23,7 @@ type Options = {
  * https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fetch
  */
 function createFetch(fetch: Fetch,
-    { baseUrl, cookie, schema, graphql }: Options,
+    { baseUrl, cookie }: Options,
 ) {
     return async (url: string, options: any) => {
         return fetch(url, options);
