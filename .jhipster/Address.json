@@ -1,0 +1,26 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "street",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "number",
+            "fieldType": "Integer",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20180628191308",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "address",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}
