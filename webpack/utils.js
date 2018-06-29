@@ -2,14 +2,15 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = {
-    parseVersion,
-    root,
-    isExternalLib
+  parseVersion,
+  root,
+  isExternalLib
 };
 // return the version number from `pom.xml` file
 function parseVersion() {
-    let version = null;
-    return version;
+  const version = require('child_process').execSync('git rev-parse HEAD').toString().trim();
+  console.log('Last commit hash on this branch is:' + version);
+  return version;
 }
 
 const _root = path.resolve(__dirname, '..');
@@ -20,9 +21,9 @@ function root(args) {
 }
 
 function isExternalLib(module, check = /node_modules/) {
-    const req = module.userRequest;
-    if (typeof req !== 'string') {
-        return false;
-    }
-    return req.search(check) >= 0;
+  const req = module.userRequest;
+  if (typeof req !== 'string') {
+    return false;
+  }
+  return req.search(check) >= 0;
 }

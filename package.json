@@ -1,7 +1,7 @@
 {
-  "name": "app",
+  "name": "cad-2-react",
   "version": "0.0.0",
-  "description": "Description for app",
+  "description": "CAD 2",
   "private": true,
   "license": "UNLICENSED",
   "cacheDirectories": [

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Switch } from 'react-router-dom';
 
-import Login from 'app/modules/login/login';
+import LoginContainer from 'app/modules/login/login.container';
 import Register from 'app/modules/account/register/register';
 import Account from 'app/modules/account';
 import Activate from 'app/modules/account/activate/activate';
@@ -17,8 +17,8 @@ import { AUTHORITIES } from 'app/config/constants';
 
 const Routes = () => (
   <div className="view-routes">
-    <ErrorBoundaryRoute path="/login" component={Login} />
     <Switch>
+      <ErrorBoundaryRoute path="/login" component={LoginContainer} />
       <ErrorBoundaryRoute path="/logout" component={Logout} />
       <ErrorBoundaryRoute path="/register" component={Register} />
       <ErrorBoundaryRoute path="/activate/:key?" component={Activate} />

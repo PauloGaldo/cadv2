@@ -2,7 +2,6 @@ import './app.scss';
 
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Card } from 'reactstrap';
 import { HashRouter as Router } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -25,27 +24,26 @@ export class App extends React.Component<IAppProps> {
   }
 
   render() {
-    const paddingTop = '60px';
     return (
       <Router>
-        <div className="app-container" style={{ paddingTop }}>
+        <div className="app-container">
           <ToastContainer position={toast.POSITION.TOP_LEFT} className="toastify-container" toastClassName="toastify-toast" />
           <ErrorBoundary>
-            <Header
-              isAuthenticated={this.props.isAuthenticated}
-              isAdmin={this.props.isAdmin}
-              ribbonEnv={this.props.ribbonEnv}
-              isInProduction={this.props.isInProduction}
-              isSwaggerEnabled={this.props.isSwaggerEnabled}
-            />
+            {this.props.isAuthenticated ? (
+              <Header
+                isAuthenticated={this.props.isAuthenticated}
+                isAdmin={this.props.isAdmin}
+                ribbonEnv={this.props.ribbonEnv}
+                isInProduction={this.props.isInProduction}
+                isSwaggerEnabled={this.props.isSwaggerEnabled}
+              />
+            ) : null}
           </ErrorBoundary>
           <div className="container-fluid view-container" id="app-view-container">
-            <Card className="jh-card">
-              <ErrorBoundary>
-                <AppRoutes />
-              </ErrorBoundary>
-            </Card>
-            <Footer />
+            <ErrorBoundary>
+              <AppRoutes />
+            </ErrorBoundary>
+            {this.props.isAuthenticated ? <Footer /> : null}
           </div>
         </div>
       </Router>
