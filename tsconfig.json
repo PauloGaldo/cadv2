@@ -21,13 +21,13 @@
     "checkJs": false,
     "baseUrl": "./",
     "paths": {
-        "app/*": ["src/main/webapp/app/*"]
+        "app/*": ["src/app/*"]
     },
     "importHelpers": true
   },
   "include": [
-    "src/main/webapp/app/typing.d.ts",
-    "src/main/webapp/app/**/*"
+    "src/app/typing.d.ts",
+    "src/app/**/*"
   ],
   "exclude": [
     "node_modules"

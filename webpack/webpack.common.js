@@ -39,7 +39,7 @@ module.exports = options => ({
     ],
     modules: ['node_modules'],
     alias: {
-      app: utils.root('src/main/webapp/app/')
+      app: utils.root('src/app/')
     }
   },
   module: {
@@ -47,7 +47,7 @@ module.exports = options => ({
       {
         test: /\.tsx?$/,
         use: getTsLoaderRule(options.env),
-        include: [utils.root('./src/main/webapp/app')],
+        include: [utils.root('./src/app')],
         exclude: ['node_modules']
       },
       {
@@ -85,18 +85,14 @@ module.exports = options => ({
     }),
     new ForkTsCheckerWebpackPlugin({ tslint: true }),
     new CopyWebpackPlugin([
-      { from: './node_modules/swagger-ui/dist/css', to: 'swagger-ui/dist/css' },
-      { from: './node_modules/swagger-ui/dist/lib', to: 'swagger-ui/dist/lib' },
-      { from: './node_modules/swagger-ui/dist/swagger-ui.min.js', to: 'swagger-ui/dist/swagger-ui.min.js' },
-      { from: './src/main/webapp//swagger-ui/', to: 'swagger-ui' },
-      { from: './src/main/webapp/static/', to: 'static' },
-      { from: './src/main/webapp/favicon.ico', to: 'favicon.ico' },
-      { from: './src/main/webapp/manifest.webapp', to: 'manifest.webapp' },
+      { from: './src/static/', to: 'static' },
+      { from: './src/favicon.ico', to: 'favicon.ico' },
+      { from: './src/manifest.webapp', to: 'manifest.webapp' },
       // jhipster-needle-add-assets-to-webpack - JHipster will add/remove third-party resources in this array
-      { from: './src/main/webapp/robots.txt', to: 'robots.txt' }
+      { from: './src/robots.txt', to: 'robots.txt' }
     ]),
     new HtmlWebpackPlugin({
-      template: './src/main/webapp/index.html',
+      template: './src/index.html',
       chunksSortMode: 'dependency',
       inject: 'body'
     }),
