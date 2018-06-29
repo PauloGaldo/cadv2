@@ -1,0 +1,16 @@
+.navbar-operator {
+  background-color: #3f51b5;
+
+  .menu-section {
+    display: inline-block;
+
+    .btn-flat .material-icons {
+      line-height: 36px !important;
+    }
+
+    .call-origin {
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+}

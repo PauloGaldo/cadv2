@@ -14,11 +14,13 @@ import Entities from 'app/entities';
 import PrivateRoute from 'app/shared/auth/private-route';
 import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 import { AUTHORITIES } from 'app/config/constants';
+import { OperatorContainer } from 'app/modules/operator/operator.container';
 
 const Routes = () => (
   <div className="view-routes">
     <Switch>
       <ErrorBoundaryRoute path="/login" component={LoginContainer} />
+      <ErrorBoundaryRoute path="/home" component={OperatorContainer} />
       <ErrorBoundaryRoute path="/logout" component={Logout} />
       <ErrorBoundaryRoute path="/register" component={Register} />
       <ErrorBoundaryRoute path="/activate/:key?" component={Activate} />
