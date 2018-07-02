@@ -5,15 +5,28 @@ import { connect } from 'react-redux';
 import { getSession } from 'app/shared/reducers/authentication';
 import { Row, Col } from 'reactstrap';
 import { NavbarOperator } from 'app/modules/operator/navbar-operator/navbar-operator';
+import { ResizeCollapsable } from 'app/shared/resize-collapsable/resize-collapsable';
 
 export interface IOperatorContainerProps extends StateProps, DispatchProps {}
 
 export class OperatorContainer extends React.Component<IOperatorContainerProps> {
   render() {
     return (
-      <Row className="operator-container">
-        <NavbarOperator />
-      </Row>
+      <Col lg="12" className="operator-container">
+        <Row>
+          <NavbarOperator />
+        </Row>
+        <Row>
+          <Col lg="8" className="col">
+            <Row>
+              <ResizeCollapsable title="Origen de llamada">
+                <p>texto</p>
+              </ResizeCollapsable>
+            </Row>
+          </Col>
+          <Col lg="4" className="col" />
+        </Row>
+      </Col>
     );
   }
 }

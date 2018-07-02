@@ -1,0 +1,51 @@
+.collapsible {
+  width: 100%;
+  margin: 0;
+  box-shadow: none !important;
+
+  .collapsible-header {
+    padding: 5px !important;
+    font-weight: bold;
+  }
+
+  .collapsible-body {
+    padding: 0;
+    width: 100%;
+    // background: #f1f1f1;
+
+    .input-field {
+      label {
+        font-size: 14px !important;
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px);
+      }
+
+      label:not(.label-icon).active {
+        transform: translateY(-14px) scale(1) !important;
+      }
+
+      input {
+        height: 30px !important;
+      }
+    }
+  }
+
+  .mwlResizable {
+    box-sizing: border-box; // required for the enableGhostResize option to work
+    background-color: #fd4140;
+  }
+
+  .handle {
+    color: #000000;
+    float: right;
+    margin: 0 !important;
+  }
+
+  .resize-handle {
+    position: relative;
+    bottom: 10px;
+    margin-right: 5px;
+    float: right;
+    cursor: w-resize;
+  }
+}

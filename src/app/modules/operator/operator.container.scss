@@ -1,3 +1,10 @@
 .operator-container {
   margin: 0 !important;
+  padding: 0 !important;
+  .row {
+    margin: 0;
+  }
+  .col {
+    padding: 0 !important;
+  }
 }
