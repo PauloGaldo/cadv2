@@ -1,44 +1,25 @@
 import './operator.container.scss';
 
 import * as React from 'react';
-import { connect } from 'react-redux';
-import { getSession } from 'app/shared/reducers/authentication';
 import { Row, Col } from 'reactstrap';
 import { NavbarOperator } from 'app/modules/operator/navbar-operator/navbar-operator';
-import { ResizeCollapsable } from 'app/shared/resize-collapsable/resize-collapsable';
+import OperatorLayout from 'app/modules/operator/operator-layout/operator-layout';
 
-export interface IOperatorContainerProps extends StateProps, DispatchProps {}
+// export interface IOperatorContainerProps extends StateProps, DispatchProps { }
+const layout = [{ i: 'a', x: 0, y: 0, w: 1, h: 2, static: false }];
 
-export class OperatorContainer extends React.Component<IOperatorContainerProps> {
+export class OperatorContainer extends React.Component {
   render() {
     return (
-      <Col lg="12" className="operator-container">
-        <Row>
-          <NavbarOperator />
-        </Row>
-        <Row>
-          <Col lg="8" className="col">
-            <Row>
-              <ResizeCollapsable title="Origen de llamada">
-                <p>texto</p>
-              </ResizeCollapsable>
-            </Row>
-          </Col>
-          <Col lg="4" className="col" />
-        </Row>
-      </Col>
+      // <Col lg="12" className="operator-container">
+      //   <Row>
+      //     <NavbarOperator />
+      //   </Row>
+
+      // </Col>
+      <OperatorLayout showModal />
     );
   }
 }
 
-const mapStateToProps = storeState => ({
-  account: storeState.authentication.account,
-  isAuthenticated: storeState.authentication.isAuthenticated
-});
-
-const mapDispatchToProps = { getSession };
-
-type StateProps = ReturnType<typeof mapStateToProps>;
-type DispatchProps = typeof mapDispatchToProps;
-
-export default connect(mapStateToProps, mapDispatchToProps)(OperatorContainer);
+export default OperatorContainer;

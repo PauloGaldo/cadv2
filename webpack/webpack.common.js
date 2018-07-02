@@ -45,7 +45,7 @@ module.exports = options => ({
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx|jsx|js)$/,
         use: getTsLoaderRule(options.env),
         include: [utils.root('./src/app')],
         exclude: ['node_modules']
