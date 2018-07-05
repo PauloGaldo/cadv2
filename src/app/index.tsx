@@ -16,6 +16,10 @@ import 'materialize-css/dist/css/materialize.css';
 // tslint:disable-next-line:no-submodule-imports
 import 'materialize-css/dist/js/materialize.js';
 import 'typeface-roboto';
+// tslint:disable-next-line:no-submodule-imports
+import 'react-grid-layout/css/styles.css';
+// tslint:disable-next-line:no-submodule-imports
+import 'react-resizable/css/styles.css';
 
 const devTools = process.env.NODE_ENV === 'development' ? <DevTools /> : null;
 
