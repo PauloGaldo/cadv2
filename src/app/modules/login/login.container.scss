@@ -7,23 +7,25 @@
   }
 }
 
-.notificiacion {
-  width: 300px;
-  height: 50px;
-  background-color: #fff6d9;
-  border-radius: 10px;
+.switch{
+  border:1px solid #ccc;
+  width:200px;
+  height:35px;
+  border-radius:13px;
+  cursor:pointer;
+  display:inline-block
 }
-
-.notificiacion {
-  line-height: 3em;
+.switch-toggle{
+  border:1px solid #999;
+  box-shadow:1px 1px 1px #ccc;
+  width:100px;
+  height:34px;
+  left:0;
+  border-radius:12px;
+  background:#fff;
+  position:relative;
+  transition:left .2s ease-in-out
 }
-
-.notificiacion img {
-  float: left;
-  margin-top: 3%;
-  margin-left: 3%;
-  margin-right: 4%;
-}
-
-.notificiacion p {
-}
+.switch.on{background:blue}
+.switch.on .switch-toggle{left:100px}
+.switch.disabled{cursor:not-allowed}

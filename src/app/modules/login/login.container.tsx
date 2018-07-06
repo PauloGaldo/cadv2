@@ -1,5 +1,4 @@
 import './login.container.scss';
-// import '../../../../node_modules/react-toggle-switch/dist/css/switch.min.css';
 
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -47,17 +46,17 @@ export class LoginContainer extends React.Component<ILoginContainerProps, ILogin
 
   constructor(props) {
     super(props);
-    // this.state = {
-    //   switched: false
-    // };
+     this.state = {
+       switched: false
+     };
   }
 
   toggleSwitch = () => {
-    // this.setState(prevState => {
-    //   return {
-    //     switched: !prevState.switched
-    //   };
-    // });
+     this.setState(prevState => {
+       return {
+         switched: !prevState.switched
+       };
+     });
   };
 
   render() {
@@ -113,16 +112,14 @@ export class LoginContainer extends React.Component<ILoginContainerProps, ILogin
               <br />
               <label for="validacion">Validación:</label>
               <div>
-                <Switch
+                <Switch 
                   onClick={this.toggleSwitch}
                   on={this.state.switched}
-                  color="blue"
-                  size="large"
                   icons={{
                     checked: <i className="material-icons prefix">phonewhite24px</i>,
-                    unchecked: null
                   }}
                 />
+
               </div>
               <br />
               <div className="input-field">
