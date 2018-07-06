@@ -1,5 +1,5 @@
 import './login.container.scss';
-import '../../../../node_modules/react-toggle-switch/dist/css/switch.min.css';
+// import '../../../../node_modules/react-toggle-switch/dist/css/switch.min.css';
 
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -9,6 +9,7 @@ import { Row, Col, Button } from 'reactstrap';
 import { login } from 'app/shared/reducers/authentication';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import Switch from 'react-toggle-switch';
+import { IRootState } from 'app/shared/reducers';
 
 export interface ILoginContainerProps extends StateProps, DispatchProps, RouteComponentProps<{}> {}
 
@@ -32,7 +33,7 @@ export class LoginContainer extends React.Component<ILoginContainerProps, ILogin
   };
 
   handleValidSubmit = (event, values) => {
-    this.props.handleLogin(values.username, values.password, value.extension);
+    // this.props.handleLogin(values.username, values.password, value.extension);
     event.preventDefault();
   };
 
@@ -41,22 +42,22 @@ export class LoginContainer extends React.Component<ILoginContainerProps, ILogin
   };
 
   handleChange = name => event => {
-    this.setState({ [name]: event.target.checked });
+    // this.setState({ [name]: event.target.checked });
   };
 
   constructor(props) {
     super(props);
-    this.state = {
-      switched: false
-    };
+    // this.state = {
+    //   switched: false
+    // };
   }
 
   toggleSwitch = () => {
-    this.setState(prevState => {
-      return {
-        switched: !prevState.switched
-      };
-    });
+    // this.setState(prevState => {
+    //   return {
+    //     switched: !prevState.switched
+    //   };
+    // });
   };
 
   render() {
@@ -82,8 +83,8 @@ export class LoginContainer extends React.Component<ILoginContainerProps, ILogin
         <Row className="justify-content-center">
           <Col md="8">
             <AvForm id="login-form" onValidSubmit={this.handleValidSubmit}>
-              <div class="input-field">
-                <i class="material-icons prefix">personblack24px</i>
+              <div className="input-field">
+                <i className="material-icons prefix">personblack24px</i>
                 <input
                   id="extension"
                   type="text"
@@ -94,12 +95,12 @@ export class LoginContainer extends React.Component<ILoginContainerProps, ILogin
               </div>
               <br />
               <label for="perfil">Perfil:</label>
-              <div class="input-field">
-                <i class="material-icons prefix">visibility24px</i>
+              <div className="input-field">
+                <i className="material-icons prefix">visibility24px</i>
                 <div>
                   <select
                     id="profilSelect"
-                    class="form-control"
+                    className="form-control"
                     validate={{ required: { value: true, errorMessage: 'Seleccione el perfil.' } }}
                   >
                     <option value="Seleccione el Perfil" />
@@ -118,18 +119,18 @@ export class LoginContainer extends React.Component<ILoginContainerProps, ILogin
                   color="blue"
                   size="large"
                   icons={{
-                    checked: <i class="material-icons prefix">phonewhite24px</i>,
+                    checked: <i className="material-icons prefix">phonewhite24px</i>,
                     unchecked: null
                   }}
                 />
               </div>
               <br />
-              <div class="input-field">
-                <i class="material-icons prefix">phoneblack24px</i>
+              <div className="input-field">
+                <i className="material-icons prefix">phoneblack24px</i>
                 <input
                   id="extension"
                   type="number"
-                  required="required"
+                  required
                   validate={{ required: { value: true, errorMessage: 'Ingrese el número de extensión.' } }}
                 />
                 <label for="username">Numero de extensión</label>
@@ -147,7 +148,15 @@ export class LoginContainer extends React.Component<ILoginContainerProps, ILogin
   }
 }
 
+const mapStateToProps = ({ authentication }: IRootState) => ({
+  isAuthenticated: authentication.isAuthenticated,
+  loginError: authentication.loginError,
+  showModal: authentication.showModalLogin
+});
+
 const mapDispatchToProps = { login };
+
+type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;
 
-export default connect(null, mapDispatchToProps)(LoginContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
