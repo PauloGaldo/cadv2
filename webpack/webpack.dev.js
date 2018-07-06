@@ -40,26 +40,26 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
     },
     hot: true,
     contentBase: './target/www',
-    proxy: [{
-      context: [
-        /* jhipster-needle-add-entity-to-webpack - JHipster will add entity api paths here */
-        '/api',
-        '/management',
-        '/swagger-resources',
-        '/v2/api-docs',
-        '/h2-console',
-        '/auth'
-      ],
-      target: 'http://127.0.0.1:8080',
-      secure: false,
-      headers: { host: 'localhost:9000' }
-    },{
-      context: [
-        '/websocket'
-      ],
-      target: 'ws://127.0.0.1:8080',
-      ws: true
-    }],
+//    proxy: [{
+//      context: [
+//        /* jhipster-needle-add-entity-to-webpack - JHipster will add entity api paths here */
+//        '/api',
+//        '/management',
+//        '/swagger-resources',
+//        '/v2/api-docs',
+//        '/h2-console',
+//        '/auth'
+//      ],
+//      target: 'http://127.0.0.1:8080',
+//      secure: false,
+//      headers: { host: 'localhost:9000' }
+//    },{
+//      context: [
+//        '/websocket'
+//      ],
+//      target: 'ws://127.0.0.1:8080',
+//      ws: true
+//    }],
     watchOptions: {
       ignored: /node_modules/
     }

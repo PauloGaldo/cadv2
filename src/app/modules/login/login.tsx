@@ -1,31 +1,52 @@
 import * as React from 'react';
 
-import { Row, Col } from 'reactstrap';
+import { connect } from 'react-redux';
+import { AvForm, AvField } from 'availity-reactstrap-validation';
+import { Row, Col, Alert, Button } from 'reactstrap';
 
-export interface ILoginModalProps {
-  showModal: boolean;
-  loginError: boolean;
-  handleLogin: Function;
-  handleClose: Function;
+export type ILoginProps = DispatchProps;
+
+export interface ILoginState {
+  username: string;
+  password: string;
 }
 
-class LoginModal extends React.Component<ILoginModalProps> {
-  handleSubmit = (event, errors, { username, password, rememberMe }) => {
-    const { handleLogin } = this.props;
-    handleLogin(username, password, rememberMe);
+export class LoginPage extends React.Component<ILoginProps, ILoginState> {
+  state: ILoginState = {
+    username: '',
+    password: ''
+  };
+
+  componentWillUnmount() {
+    this.props.reset();
+  }
+
+  handleValidSubmit = (event, values) => {
+    this.props.handleLogin(values.username, values.password);
+    event.preventDefault();
+  };
+
+  updatePassword = event => {
+    this.setState({ password: event.target.value });
   };
 
   render() {
-    const { loginError, handleClose } = this.props;
-
     return (
-      <form>
-        <Row>
-          <input type="text" />
+      <div>
+        <Row className="justify-content-center">
+          <Col md="8" />
         </Row>
-      </form>
+        <Row className="justify-content-center">
+          <Col md="8">
+            <AvForm />
+          </Col>
+        </Row>
+      </div>
     );
   }
 }
 
-export default LoginModal;
+const mapDispatchToProps = { login };
+type DispatchProps = typeof mapDispatchToProps;
+
+export default connect(null, mapDispatchToProps)(LoginContainer);
