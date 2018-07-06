@@ -1,9 +1,8 @@
-import { createStore, applyMiddleware } from 'redux';
-import promiseMiddleware from 'redux-promise-middleware';
 // import * as toaster from 'react-toastify';
 // import * as sinon from 'sinon';
-
 import notificationMiddleware from 'app/config/notification-middleware';
+import { applyMiddleware, createStore } from 'redux';
+import promiseMiddleware from 'redux-promise-middleware';
 
 describe('Notification Middleware', () => {
   let store;

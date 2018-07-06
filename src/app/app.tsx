@@ -27,7 +27,7 @@ export class App extends React.Component<IAppProps> {
     return (
       <Router>
         <div className="app-container">
-          <ToastContainer position={toast.POSITION.TOP_LEFT} className="toastify-container" toastClassName="toastify-toast" />
+          {/* <ToastContainer position={toast.POSITION.TOP_LEFT} className="toastify-container" toastClassName="toastify-toast" /> */}
           <ErrorBoundary>
             {this.props.isAuthenticated ? (
               <Header

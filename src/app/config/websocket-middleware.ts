@@ -1,13 +1,11 @@
-import * as SockJS from 'sockjs-client';
-
-import * as Stomp from 'webstomp-client';
+import { FAILURE, SUCCESS } from 'app/shared/reducers/action-type.util';
+// import { ACTION_TYPES as ADMIN_ACTIONS } from 'app/modules/administration/administration.reducer';
+import { ACTION_TYPES as AUTH_ACTIONS } from 'app/shared/reducers/authentication';
+import { Storage } from 'react-jhipster';
 import { Observable } from 'rxjs'; // tslint:disable-line
 import { Observer } from 'rxjs/Observer'; // tslint:disable-line
-import { Storage } from 'react-jhipster';
-
-import { ACTION_TYPES as ADMIN_ACTIONS } from 'app/modules/administration/administration.reducer';
-import { ACTION_TYPES as AUTH_ACTIONS } from 'app/shared/reducers/authentication';
-import { SUCCESS, FAILURE } from 'app/shared/reducers/action-type.util';
+import * as SockJS from 'sockjs-client';
+import * as Stomp from 'webstomp-client';
 
 let stompClient = null;
 
@@ -82,7 +80,7 @@ const disconnect = () => {
     stompClient.disconnect();
     stompClient = null;
   }
-  window.onhashchange = () => {};
+  window.onhashchange = () => { };
   alreadyConnectedOnce = false;
 };
 
@@ -101,7 +99,7 @@ export default store => next => action => {
     if (!alreadyConnectedOnce) {
       receive().subscribe(activity => {
         return store.dispatch({
-          type: ADMIN_ACTIONS.WEBSOCKET_ACTIVITY_MESSAGE,
+          type: null, // ADMIN_ACTIONS.WEBSOCKET_ACTIVITY_MESSAGE,
           payload: activity
         });
       });
