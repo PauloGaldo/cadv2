@@ -1,25 +1,27 @@
-# app
-This application was generated using JHipster 5.0.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.0.1](https://www.jhipster.tech/documentation-archive/v5.0.1).
+# CAD v2
 
-## Development
+Esta aplicación fue generada usando JHipster 5.0.1, puedes encontrar la documentacion y ayuda en [https://www.jhipster.tech/documentation-archive/v5.0.1](https://www.jhipster.tech/documentation-archive/v5.0.1).
 
-Before you can build this project, you must install and configure the following dependencies on your machine:
+## Desarrollo
 
-1. [Node.js][]: We use Node to run a development web server and build the project.
-   Depending on your system, you can install Node either from source or as a pre-packaged bundle.
+Antes de que puedas compilar este proyecto, debes instalar y configurar las siguientes dependencias en tu computadora:
 
-After installing Node, you should be able to run the following command to install development tools.
-You will only need to run this command when dependencies change in [package.json](package.json).
+1. [Node.js][]: Usaremos Node para correr un servidor web de desarrolo y compilar el proyecto.
+    Dependiendo de su sistema, puedes instalar Node desde su codigo fuente o como un paquete pre-evasado.
 
-    npm install
+Despues de instalar Node, deberias ser capaz de correr los siguientes comandos para instalar herramientas de desarrollo.
+Solo necesitaras correr este comando cuando las dependencias cambien en [package.json](package.json).
 
-We use npm scripts and [Webpack][] as our build system.
+Nosotros usamos scripts npm y [Webpack][] como nuestro sistema de compilado.
 
-Run the following commands in two separate terminals to create a blissful development experience where your browser
-auto-refreshes when files change on your hard drive.
+Corre los siguientes comandos en dos terminales separadas para crear una maravillosa experiencia de desarrollo donde tu navegador
+se auto-refrescara cuando los archivos cambien en tu disco duro.
 
     ./mvnw
     npm start
+
+[Npm][] es tambien usado para manejar dependencias CSS y JavaScript usadas en esta aplicación. Puedes actualizar las dependencias 
+especificando una versión mas nueva en [package.json](package.json). Tambien puedes correr `npm update` y `npm install` para administrar dependencias.
 
 [Npm][] is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies by
 specifying a newer version in [package.json](package.json). You can also run `npm update` and `npm install` to manage dependencies.
